@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/css/bootstrap-combined.no-icons.min.css"
+        rel="stylesheet">
+    <link href="//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css" rel="stylesheet">
+    <link rel="stylesheet" href="./assets/css/styles.css">
+    <link rel="icon" href="data:,">
+    <title>My Paint Online</title>
+</head>
+
+<body onload="init()">
+    <header>
+        <h3>MY PAINT ONLINE BY Alain ORLUK</h3>
+        <div class="menu cursor">
+            <div class="file-menu">
+                <div class="file-tool cursor">
+                    <span id="window-tool" onclick="dispToolbar()">&#9776;</span>
+                    <span>&#124;</span>
+                    <span class="file-tool-save cursor">&#128190;</span>
+                    <span>&#8617;</span>
+                    <span>&#8618;</span>
+                </div>
+                <div class="window-toolbar display-none">
+                    <ul>
+                        <li>Restaurer</li>
+                        <li>Déplacer</li>
+                        <li>Taille</li>
+                        <li>Réduire</li>
+                        <li>Agrandir</li>
+                        <li>Fermer</li>
+                    </ul>
+
+                </div>
+                <div class="doc-name">
+                    - Sans titre - myPaint Online
+                </div>
+                <div class="resize-tool cursor">
+                    <span>&#9866;</span>
+                    <span class="display-none">&#9744;</span>
+                    <span>&#9587;</span>
+                </div>
+            </div>
+            <div class="main-menu cursor">
+                <span class="blue">Fichier</span>
+                <span class="btn-tool btn-tool-active">Accueil</span>
+                <span class="btn-tool">Affichage</span>
+            </div>
+            <div class="tools cursor">
+                <div class="tool-paste-cut-copy">
+                    <div class="paper-press">
+                        <div class="paste">
+                            <div id="paste1">
+                                <span>&#128203;</span>
+                            </div>
+                            <div id="paste2">
+                                <span>Coller</span>
+                                <span>&#9662;</span>
+                            </div>
+                        </div>
+                        <div class="cut-copy">
+                            <span id="ciseau">✄</span>
+                            <span id="copy">&#12283;</span>
+                        </div>
+                        <span class="display-none">Presse-papiers</span>
+                    </div>
+                </div>
+                <div class="tool-forms">
+                    <div class="form-select">
+                        <div class="a-form">
+                            <div class="active-form"></div>
+                        </div>
+                        <div class="select-form">
+                            <span>Sélectionner</span>
+                            <span>&#9662;</span>
+                        </div>
+                    </div>
+                    <div class="draw-forms display-none"></div>
+                </div>
+                <!--<div>
+                    <span class="tool-erase cursor">Effacer</span>
+                </div>-->
+                <div class="tool-color">
+                    <div class="color-select1 active">
+                        <div id="selected1"></div>
+                        <span>Couleur</span>
+                        <span>1</span>
+                    </div>
+                    <div class="color-select2">
+                        <div id="selected2"></div>
+                        <span>Couleur</span>
+                        <span>2</span>
+                    </div>
+                    <div class="palette-color">
+                        <div class="colors1">
+                            <div class="color" id="black" onclick="color(this)"></div>
+                            <div class="color" id="mydarkgray" onclick="color(this)"></div>
+                            <div class="color" id="darkred" onclick="color(this)"></div>
+                            <div class="color" id="red" onclick="color(this)"></div>
+                            <div class="color" id="orange" onclick="color(this)"></div>
+                            <div class="color" id="yellow" onclick="color(this)"></div>
+                            <div class="color" id="green" onclick="color(this)"></div>
+                            <div class="color" id="turquoise" onclick="color(this)"></div>
+                            <div class="color" id="myindigo" onclick="color(this)"></div>
+                            <div class="color" id="violet" onclick="color(this)"></div>
+                        </div>
+                        <div class="colors2">
+                            <div class="color" id="white" onclick="color(this)"></div>
+                            <div class="color" id="lightgray" onclick="color(this)"></div>
+                            <div class="color" id="brown" onclick="color(this)"></div>
+                            <div class="color" id="salmon" onclick="color(this)"></div>
+                            <div class="color" id="gold" onclick="color(this)"></div>
+                            <div class="color" id="lightyellow" onclick="color(this)"></div>
+                            <div class="color" id="lightgreen" onclick="color(this)"></div>
+                            <div class="color" id="paleturquoise" onclick="color(this)"></div>
+                            <div class="color" id="blue" onclick="color(this)"></div>
+                            <div class="color" id="lavande" onclick="color(this)"></div>
+                        </div>
+                        <div class="colors-custom">
+                            <div class="color" id="white" onclick="color(this)"></div>
+                            <div class="color" id="white" onclick="color(this)"></div>
+                            <div class="color" id="white" onclick="color(this)"></div>
+                            <div class="color" id="white" onclick="color(this)"></div>
+                            <div class="color" id="white" onclick="color(this)"></div>
+                            <div class="color" id="white" onclick="color(this)"></div>
+                            <div class="color" id="white" onclick="color(this)"></div>
+                            <div class="color" id="white" onclick="color(this)"></div>
+                            <div class="color" id="white" onclick="color(this)"></div>
+                            <div class="color" id="white" onclick="color(this)"></div>
+                        </div>
+                        <!--<div id="rubberwhite" onclick="rubber(this)">Gommer</div>-->
+                        <span>Couleurs</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+    <main>
+        <canvas id="myCanvas" width="842" height="596"></canvas>
+
+
+    </main>
+    <img id="canvasimg" style="position:absolute;top:10%;left:52%;background-color: white;" style="display:none;">
+    <footer class="measure">
+
+    </footer>
+    <script type="text/javascript" src="./assets/js/my_paint.js"></script>
+</body>
+
+</html>

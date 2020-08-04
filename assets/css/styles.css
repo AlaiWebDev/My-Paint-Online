@@ -216,11 +216,6 @@ main {
 .mytitle {
     color: rgb(12, 152, 245);
 }
-
-
-
-
-
 .tools-bar {
     justify-content: flex-start;
     background-color: rgb(245, 246, 248);
@@ -305,7 +300,6 @@ main {
     padding: 0;
     margin: 3px auto 0px auto;
     border: 1px solid rgb(77, 136, 245);
-    box-shadow: 0px 0px 0px 1px white;
     background-color: black;
 }
 

@@ -5,9 +5,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link href="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/css/bootstrap-combined.no-icons.min.css"
-        rel="stylesheet">
-    <link href="//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css" rel="stylesheet">
     <link rel="stylesheet" href="./assets/css/styles.css">
     <link rel="icon" href="data:,">
     <title>My Paint Online</title>
@@ -15,15 +12,19 @@
 
 <body onload="init()">
     <header>
-        <h3>MY PAINT ONLINE BY Alain ORLUK</h3>
+        <h3 class="mytitle text-center display-none">MY PAINT ONLINE BY Alain ORLUK</h3>
         <div class="menu cursor">
-            <div class="file-menu">
+            <div class="file-bar bg-white flex">
                 <div class="file-tool cursor">
                     <span id="window-tool" onclick="dispToolbar()">&#9776;</span>
                     <span>&#124;</span>
-                    <span class="file-tool-save cursor">&#128190;</span>
-                    <span>&#8617;</span>
-                    <span>&#8618;</span>
+                    <span class="file-tool-save aria cursor">&#128190;<span
+                            class="aria-text"><strong>Enregistrer(Ctrl+S)</strong><br>Enregistrer l'image
+                            active</span></span>
+                    <span class="aria cursor">&#8617;<span class="aria-text"><strong>Annuler(Ctrl+Z)</strong><br>Annule
+                            la dernière action</span></span>
+                    <span class="aria cursor">&#8618;<span class="aria-text"><strong>Répéter(Ctrl+Y)</strong><br>Répéter
+                            la dernière action</span></span>
                 </div>
                 <div class="window-toolbar display-none">
                     <ul>
@@ -36,67 +37,85 @@
                     </ul>
 
                 </div>
-                <div class="doc-name">
+                <div id="doc-name" class="txt-font-size text-center">
                     - Sans titre - myPaint Online
                 </div>
                 <div class="resize-tool cursor">
                     <span>&#9866;</span>
-                    <span class="display-none">&#9744;</span>
-                    <span>&#9587;</span>
+                    <span>&#9744;</span>
+                    <span>&#88;</span>
                 </div>
             </div>
-            <div class="main-menu cursor">
-                <span class="blue">Fichier</span>
-                <span class="btn-tool btn-tool-active">Accueil</span>
-                <span class="btn-tool">Affichage</span>
+            <div class="main-bar flex bg-white text-center cursor">
+                <span class="file-btn txt-font-size aria"
+                    aria-label="Paint Cliquer ici pour ouvrir, enregistrer ou imprimer votre image et pour voir tout ce que vous pouvez faire d'autre avec">Fichier</span>
+                <span class="btn-tool btn-tool-active txt-font-size">Accueil</span>
+                <span class="btn-tool txt-font-size">Affichage</span>
             </div>
-            <div class="tools cursor">
-                <div class="tool-paste-cut-copy">
-                    <div class="paper-press">
+            <div class="tools-bar flex cursor">
+                <div class="tool-paste-cut-copy flex">
+                    <div class="paper-press flex">
                         <div class="paste">
-                            <div id="paste1">
+                            <div id="paste1 flex">
                                 <span>&#128203;</span>
                             </div>
-                            <div id="paste2">
-                                <span>Coller</span>
+                            <div id="paste2 flex">
+                                <span class="txt-font-size">Coller</span>
                                 <span>&#9662;</span>
                             </div>
                         </div>
-                        <div class="cut-copy">
+                        <div class="cut-copy flex">
                             <span id="ciseau">✄</span>
                             <span id="copy">&#12283;</span>
                         </div>
-                        <span class="display-none">Presse-papiers</span>
+                        <span class="display-none txt-font-size">Presse-papiers</span>
                     </div>
                 </div>
-                <div class="tool-forms">
-                    <div class="form-select">
-                        <div class="a-form">
+                <div class="tool-forms flex">
+                    <div class="form-select align-center flex">
+                        <div class="a-form flex">
                             <div class="active-form"></div>
                         </div>
-                        <div class="select-form">
-                            <span>Sélectionner</span>
+                        <div class="select-form align-center flex">
+                            <span class="txt-font-size">Sélectionner</span>
                             <span>&#9662;</span>
                         </div>
                     </div>
                     <div class="draw-forms display-none"></div>
                 </div>
+                <div class="tools">
+                    <div class="tools-items flex">
+                        <div class="tools-items1 flex">
+                            <img class="tools-item" src="./assets/img/crayon.png">
+                            <img class="tools-item" src="./assets/img/seau.png">
+                            <img class="tools-item" src="./assets/img/A.png">
+                        </div>
+                        <div class="tools-items2 flex">
+                            <img class="tools-item" src="./assets/img/gomme.png">
+                            <img class="tools-item" src="./assets/img/pipette.png">
+                            <img class="tools-item" src="./assets/img/loupe.png">
+                        </div>
+                    </div>
+                    <div class="tools-pencils">
+
+                    </div>
+                </div>
                 <!--<div>
                     <span class="tool-erase cursor">Effacer</span>
                 </div>-->
-                <div class="tool-color">
-                    <div class="color-select1 active">
+                <div class="tool-color flex">
+                    <div class="color-select1 align-center flex active">
                         <div id="selected1"></div>
-                        <span>Couleur</span>
-                        <span>1</span>
+                        <span class="txt-font-size text-center">Couleur</span>
+                        <span class="txt-font-size text-center">1</span>
                     </div>
-                    <div class="color-select2">
+                    <div class="color-select2 align-center flex">
                         <div id="selected2"></div>
-                        <span>Couleur</span>
-                        <span>2</span>
+                        <span class="txt-font-size text-center">Couleur</span>
+                        <span class="txt-font-size text-center">2</span>
                     </div>
-                    <div class="palette-color">
-                        <div class="colors1">
+                    <div class="palette-color flex">
+                        <div class="flex bg-white">
                             <div class="color" id="black" onclick="color(this)"></div>
                             <div class="color" id="mydarkgray" onclick="color(this)"></div>
                             <div class="color" id="darkred" onclick="color(this)"></div>
@@ -108,7 +127,7 @@
                             <div class="color" id="myindigo" onclick="color(this)"></div>
                             <div class="color" id="violet" onclick="color(this)"></div>
                         </div>
-                        <div class="colors2">
+                        <div class="flex bg-white">
                             <div class="color" id="white" onclick="color(this)"></div>
                             <div class="color" id="lightgray" onclick="color(this)"></div>
                             <div class="color" id="brown" onclick="color(this)"></div>
@@ -120,7 +139,7 @@
                             <div class="color" id="blue" onclick="color(this)"></div>
                             <div class="color" id="lavande" onclick="color(this)"></div>
                         </div>
-                        <div class="colors-custom">
+                        <div class="flex bg-white">
                             <div class="color" id="white" onclick="color(this)"></div>
                             <div class="color" id="white" onclick="color(this)"></div>
                             <div class="color" id="white" onclick="color(this)"></div>
@@ -133,7 +152,7 @@
                             <div class="color" id="white" onclick="color(this)"></div>
                         </div>
                         <!--<div id="rubberwhite" onclick="rubber(this)">Gommer</div>-->
-                        <span>Couleurs</span>
+                        <span class="txt-font-size text-center">Couleurs</span>
                     </div>
                 </div>
             </div>

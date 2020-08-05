@@ -8,11 +8,10 @@ var currY = 0;
 var dot_flag = false;
 var x = "black";
 var y = 2;
-document.getElementById('windowtool').addEventListener('click', dispToolbar);
+document.querySelector('#window-tool').addEventListener('click', dispToolbar);
 function init() {
     canvas = document.getElementById('myCanvas');
     //listenToolerase = document.querySelector('.tool-erase');
-    listenToolsave = document.querySelector('.file-tool-save');
     ctx = canvas.getContext("2d");
     w = canvas.width;
     h = canvas.height;
@@ -167,5 +166,7 @@ function rubber(obj) {
     }
 }
 function dispToolbar(){
+    toolbar = document.querySelector('.file-tool-bar');
+    toolbar.display
 
 }

@@ -3,19 +3,22 @@
     box-sizing: border-box;
     padding: 0;
     margin: 0;
-    font-family: 'Segoe UI';  
+    font-family: 'Segoe UI';
     /*border:1px solid red;*/
 }
+
 html,
 body {
     height: 100%;
     background-color: rgb(255, 255, 255);
     font-size: 16px;
 }
+
 header {
     margin-bottom: 10px;
     padding-bottom: 10px;
 }
+
 main {
     background-color: rgb(207, 216, 231);
     height: 100%;
@@ -25,66 +28,54 @@ main {
     align-items: center;
     box-shadow: 10px 10px 2px 1px gray;
 }
+a {
+    text-decoration: none;
+    cursor: default;
+}
+
 .display-none {
     display: none;
 }
+
 .cursor {
     cursor: default;
 }
-.txt-font-size{
+
+.txt-font-size {
     font-size: 18px;
 }
-.text-center{
-    text-align: end;
+
+.text-center {
+    text-align: center;
 }
-.align-center{
+
+.align-center {
     align-items: center
 }
-.bg-white{
+
+.bg-white {
     background-color: white;
 }
-.flex{
-    display:flex
+
+.flex {
+    display: flex
 }
 
 /********************LAYOUT**********************/
 
 .menu {
     width: 100%;
+    display: flex;
+    justify-content: space-between;
 }
+
 /********************MODULES**********************/
-/******TOOLTIPS******/
-.aria {
-    position: relative;
-    display: inline-block;
-}
-.aria .aria-text {
-    visibility: hidden;
-    width: 200px;
-    background: linear-gradient(white,rgb(248, 250, 253));
-    opacity: 1;
-    border: 1px solid black;
-    color: rgb(109, 109, 109);
-    font-size: .8rem;
-    text-align: left;
-    padding: 5px 0 5px 3px;
-    position: absolute;
-    z-index: 1;
-    top: 100%;
-    left: 100%;
-    opacity: 0;
-    transition-delay: .6s;
-}
-.aria:hover .aria-text {
-    visibility: visible;
-    opacity: 1;
-    transition-delay: 1s;
-}
 /******FILE-MENU******/
 .file-bar {
     background-color: rgb(255, 255, 255);
     justify-content: space-between;
 }
+
 .file-tool-save:hover {
     box-shadow: 0px 0px 0px 1px rgb(64, 174, 248);
 }
@@ -96,11 +87,16 @@ main {
 #doc-name {
     width: 50%;
 }
+
 /******MAIN-BARRE******/
 .file-btn {
     color: white;
-    background-color: rgb(72, 111, 240);
+    background-color: rgb(25, 121, 202);
     padding: 5px 15px 5px 15px;
+}
+
+.file-btn:hover {
+    background-color: rgb(41, 140, 225);
 }
 
 .btn-tool {
@@ -127,7 +123,7 @@ main {
 .tool-paste-cut-copy {
     flex-flow: row;
     background-color: rgb(245, 246, 248);
-    margin: 4px 0 4px 4px 4px;
+    margin: 11px 4px 4px 4px;
 }
 
 .paper-press {
@@ -145,6 +141,7 @@ main {
     padding-right: 5px;
     padding-left: 5px;
 }
+
 #paste1 {
     font-size: 3rem;
     margin-bottom: 2px;
@@ -183,6 +180,7 @@ main {
 .copy span {
     font-size: 3rem;
 }
+
 /********************STATE**********************/
 
 /********************THEME**********************/
@@ -191,11 +189,11 @@ main {
     position: relative;
     display: inline-block;
 }
+
 .aria .aria-text {
     visibility: hidden;
     width: 200px;
-    background: linear-gradient(white,rgb(248, 250, 253));
-    opacity: 1;
+    background: linear-gradient(white, rgb(248, 250, 253));
     border: 1px solid black;
     color: rgb(109, 109, 109);
     font-size: .8rem;
@@ -208,18 +206,30 @@ main {
     opacity: 0;
     transition-delay: .6s;
 }
+
 .aria:hover .aria-text {
     visibility: visible;
     opacity: 1;
     transition-delay: 1s;
 }
+.aria-text strong{
+    margin-left: 3px;
+}
+.aria-text span:last-child {
+    color: rgb(85, 92, 98) !important;
+    padding-left: 10px;
+}
+
 .mytitle {
     color: rgb(12, 152, 245);
 }
+
 .tools-bar {
     justify-content: flex-start;
     background-color: rgb(245, 246, 248);
 }
+
+
 
 /******DRAW FORMS******/
 .active-form {
@@ -236,27 +246,32 @@ main {
     margin-top: 4px;
     flex-flow: column;
 }
+
 .a-form {
     width: 100%;
     height: 100%;
+    border-bottom: rgb(64, 174, 248);
 }
 
 .form-select {
     flex-flow: column;
     justify-content: space-between;
-}
-
-.form-select:hover>div {
+    background-color: rgb(201, 224, 247);
     box-shadow: 0px 0px 0px 1px rgb(64, 174, 248);
 }
-
+.a-form:hover .select-form{
+    background-color: rgb(245, 246, 247) !important;
+}
+.a-form:hover {
+    background-color: rgb(213, 230, 247);
+}
 .select-form:hover {
     background-color: rgb(232, 239, 247);
 }
-
 .select-form {
     flex-flow: column;
     width: 100%;
+    
 }
 
 .select-form span:first-child {
@@ -264,7 +279,34 @@ main {
     width: 100%;
 }
 
-/******DRAW FORMS******/
+/******TOOLS******/
+.tools-items {
+    flex-flow: column;
+}
+
+.tools-items1,
+.tools-items2 {
+    margin: auto 10px auto 10px;
+    justify-content: space-around;
+}
+
+.tools-items1 {
+    margin-top: 20px;
+    padding: 1px
+}
+
+.tools-items2 {
+    margin-bottom: 20px;
+    padding-top: 1px;
+}
+
+.tools-item:hover {
+    box-shadow: 0px 0px 0px 1px rgba(64, 174, 248, 0.5);
+    background: rgb(77, 136, 245);
+}
+
+/******COLOURS******/
+/***Active Colours***/
 .tool-color {
     margin-top: 4px
 }
@@ -310,29 +352,7 @@ main {
     border: 1px solid black;
     background-color: white;
 }
-/******TOOLS******/
-.tools-items{
-    flex-flow: column;
-}
-.tools-items1, .tools-items2{
-    margin: auto 10px auto 10px;
-    justify-content: space-around;
-}
-.tools-items1{
-    margin-top: 20px;
-    padding:1px
-}
-.tools-items2{
-    margin-bottom: 20px;
-    padding-top: 1px;
-}
-
-.tools-item:hover{
-    box-shadow: 0px 0px 0px 1px rgba(64, 174, 248,0.5);
-    background: rgb(77, 136, 245);
-}
-
-/******COLOURS FORMS******/
+/***Clours palette***/
 .palette-color {
     flex-flow: column;
     margin-bottom: 10px;

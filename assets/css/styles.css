@@ -459,10 +459,8 @@ a {
     background-color: white;
 }
 
-.measure *{
-    height: 20px;
-    background-color: rgb(231, 221, 221);
-}
-.foot-pos-cursor{
 
+.foot-pos-cursor img{
+    display: flex;
+    background-color: rgb(231, 221, 221);
 }

@@ -15,6 +15,7 @@ function init() {
     ctx = canvas.getContext("2d");
     w = canvas.width;
     h = canvas.height;
+    listenToolsave = document.querySelector('.file-tool-save');
     listenToolsave.addEventListener("click", save);
     //listenToolerase.addEventListener("click", erase);
     canvas.addEventListener("click", function (e) {

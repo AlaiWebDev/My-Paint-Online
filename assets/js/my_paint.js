@@ -38,6 +38,18 @@ function draw() {
     ctx.beginPath();
     ctx.moveTo(prevX, prevY);
     ctx.lineTo(currX, currY);
+    var ray = currX-prevX;
+    if (ray < 0){ray = currY - prevY};
+    ctx.strokeStyle = x;
+    ctx.lineWidth = y;
+    ctx.stroke();
+    ctx.arc(prevX, prevY, ray, 0, 2 * Math.PI);
+    ctx.closePath();
+}
+function draw_circle() {
+    ctx.beginPath();
+    ctx.moveTo(prevX, prevY);
+    ctx.lineTo(currX, currY);
     ctx.strokeStyle = x;
     ctx.lineWidth = y;
     ctx.stroke();

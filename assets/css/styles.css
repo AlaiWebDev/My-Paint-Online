@@ -4,7 +4,7 @@
     padding: 0;
     margin: 0;
     font-family: 'Segoe UI';
-    border:1px solid red;
+    /*border:1px solid red;*/
 }
 
 html,
@@ -80,27 +80,16 @@ a {
 .file-tool * {
     margin: 1px;
 }
-<<<<<<< Updated upstream
-
-.file-tool-bar {
-=======
-.file-tool-save img{
-    display: block;
-}
 .file-tool-bar{
->>>>>>> Stashed changes
     display: none;
 }
 
 .file-tool-save:hover {
     box-shadow: 0px 0px 0px 1px rgb(64, 174, 248);
-<<<<<<< Updated upstream
 }
 
 .file-tool-save img {
     display: block;
-=======
->>>>>>> Stashed changes
 }
 
 .resize-tool span {

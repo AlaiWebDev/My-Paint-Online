@@ -290,21 +290,32 @@ a {
     display: flex;
     flex-flow: column;
     align-items: flex-start;
-    width:40px;
+    width:auto;
     margin: 10px 10px;
-    border-right: 1px solid rgb(214, 207, 207);
+    
 }
 .img-resize-tools img{
     display: block;
 }
 .img-resize-tools span{
-    display: block;
+    display: flex;
     margin:2px;
+    margin-right: 0;
 }
 .img-resize-tools span:hover:not(:first-child){
         box-shadow: 0px 0px 0px 1px rgba(64, 174, 248, 0.5);
-
 }
+#tools-text{
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    margin-top: 10px;
+    border-right: 1px solid rgb(214, 207, 207);
+}
+#tools-text *{
+    padding-bottom: 4px;
+}
+
 /******TOOLS******/
 .tool-forms
 .select-draw{

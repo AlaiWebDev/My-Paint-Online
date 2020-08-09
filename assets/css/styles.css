@@ -297,7 +297,7 @@ a {
     align-items: flex-start;
     width:auto;
     margin: 10px 10px;
-    
+    border-right: 1px solid rgb(214, 207, 207);
 }
 .img-resize-tools img{
     display: block;
@@ -305,7 +305,7 @@ a {
 .img-resize-tools span{
     display: flex;
     margin:2px;
-    margin-right: 0;
+    margin-right: 4px;
 }
 .img-resize-tools span:hover:not(:first-child){
         box-shadow: 0px 0px 0px 1px rgba(64, 174, 248, 0.5);

@@ -237,12 +237,12 @@ a {
     background-color: rgb(245, 246, 248);
 }
 .tools-bar>div{
-    height: 106px;
+    height: 100%;
 }
 
 
 
-/******DRAW FORMS******/
+/******SELECT FORMS******/
 .active-form {
     border: 1px dashed rgb(72, 111, 240);
     width: 50px;
@@ -256,6 +256,7 @@ a {
 .tool-forms {
     margin-top: 4px;
     flex-flow: column;
+    height: 100%;
 }
 
 .a-form {
@@ -279,7 +280,7 @@ a {
 }
 .a-form:hover {
     background-color: rgb(213, 230, 247);
-    box-shadow: 0px 0px 0px 1px rgb(64, 174, 248);
+    
 }
 
 .select-form {
@@ -291,6 +292,7 @@ a {
     margin-top: 7px;
     width: 100%;
 }
+/******RESIZE TOOLS******/
 .img-resize-tools{
     display: flex;
     flex-flow: column;
@@ -311,33 +313,10 @@ a {
         box-shadow: 0px 0px 0px 1px rgba(64, 174, 248, 0.5);
 }
 
-/******TOOLS******/
-.tool-forms
-.select-draw{
-        flex-flow: column;
-        justify-content: flex-start;
-        width: 100%;
-}
-.select-draw:hover {
-    background: rgb(213, 230, 247);
-    /*box-shadow: inset 0px 0px 0px 1px rgb(64, 174, 248);*/
-}
-.draw-active {
-    text-align: center;
-    width: 40px;
-    height: 25px;
-    margin-top: 10px;
-    margin-bottom: 15px;
-    margin-right: auto;
-    margin-left: auto;
-    
-}
-.draw-active:hover{
-    background-color: rgb(213, 230, 247);
-}
-.draw-active img{
-    min-width:70%;
-}
+
+
+
+/******DRAWING TOOLS******/
 .tools-items {
     flex-flow: column;
 }
@@ -362,7 +341,49 @@ a {
     box-shadow: 0px 0px 0px 1px rgba(64, 174, 248, 0.5);
     background: rgb(77, 136, 245);
 }
-
+/******PENCIL TOOLS******/
+.draw-select {
+    flex-flow: column;
+    justify-content: space-between;
+}
+.draw-select:hover>div {
+    box-shadow: 0px 0px 0px 1px rgb(64, 174, 248);
+}
+.draw-select:hover{
+    box-shadow: 0px 0px 0px 1px rgb(64, 174, 248);
+}
+.tool-pencil{
+        flex-flow: column;
+        height: 100%;
+        margin-top: 4px;
+}
+.select-draw{
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+}
+.select-draw span:first-child {
+    width: 100%;
+}
+.select-draw:hover{
+    background-color: rgb(213, 230, 247);
+}
+.draw-active {
+    text-align: center;
+    width: 40px;
+    height: 25px;
+    margin-top: 10px;
+    margin-bottom: 15px;
+    margin-right: auto;
+    margin-left: auto;
+    
+}
+.draw-active img{
+    min-width:70%;
+}
+.draw-forms{
+    height: 100%;
+}
 /******COLOURS******/
 /***Active Colours***/
 .tool-color {

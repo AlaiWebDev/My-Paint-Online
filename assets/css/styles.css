@@ -423,9 +423,11 @@ a {
     height: 60px;
     overflow-x: hidden;
     overflow-y: scroll;
+    
     grid-template-rows: 20px 20px 20px 20px 20px 20px 20px;
     gap: 1px 1px;
 }
+
 .draw-forms-line{
     background-color: white;
     margin-bottom: 5px;

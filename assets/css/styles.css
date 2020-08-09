@@ -195,7 +195,32 @@ a {
     position: relative;
     display: inline-block;
 }
-
+.aria2{
+    display: inline-block;
+}
+.aria2 .aria2-text {
+    display: flex;
+    flex-flow: row wrap;
+    visibility: hidden;
+    white-space: pre;
+    background: linear-gradient(white, rgb(234, 236, 238));
+    border: 1px solid black;
+    color: rgb(109, 109, 109);
+    font-size: .8rem;
+    text-align: left;
+    padding: 5px 15px 5px 3px;
+    position: absolute;
+    z-index: 1000;
+    top: 22%;
+    left: 50%;
+    opacity: 0;
+    transition-delay: .6s;
+}
+.aria2:hover .aria2-text {
+    visibility: visible;
+    opacity: 1;
+    transition-delay: 1s;
+}
 .aria .aria-text {
     display: flex;
     flex-flow: row wrap;
@@ -283,7 +308,6 @@ a {
 }
 .a-form:hover {
     background-color: rgb(213, 230, 247);
-    
 }
 
 .select-form {
@@ -316,9 +340,6 @@ a {
 .img-resize-tools span:hover:not(:first-child){
         box-shadow: 0px 0px 0px 1px rgba(64, 174, 248, 0.5);
 }
-
-
-
 
 /******DRAWING TOOLS******/
 .tools-items {
@@ -396,34 +417,24 @@ a {
     box-shadow: 0px 0px 0px 1px rgba(64, 174, 248, 0.5);
     background: rgb(77, 136, 245);
 }
+
 .draw-forms{
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    height: 100%;
-    background-color: white;
+    display: grid;
+    height: 60px;
+    overflow-x: hidden;
+    overflow-y: scroll;
+    grid-template-rows: 20px 20px 20px 20px 20px 20px 20px;
+    gap: 1px 1px;
 }
 .draw-forms-line{
     background-color: white;
+    margin-bottom: 5px;
     display: flex;
-
-}
-#lift{
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    border-left: 1px solid rgb(214, 207, 207);
-    background-color: white;
-}
-
-#lift span:nth-child(2):hover,#lift span:nth-child(3):hover{
-
-    box-shadow: 0px 0px 0px 1px rgba(64, 174, 248, 0.5);
 }
 
 #draws-form{
     display: flex;
-    margin-top: 7px;
+    margin-top: 20px;
     margin-right: 20px;
     background-color: white;
     border: 1px solid darkgray;

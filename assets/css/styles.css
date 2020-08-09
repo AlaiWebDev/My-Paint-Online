@@ -171,12 +171,14 @@ a {
     margin-right: 5px;
     margin-left: 5px;
 }
+.cut-copy span{
+    display: flex;
+    color: rgb(155, 153, 153);
+}
 .cut-copy img{
     width:20px;
     height: auto;
 }
-
-
 #copy {
     font-size: large;
 }

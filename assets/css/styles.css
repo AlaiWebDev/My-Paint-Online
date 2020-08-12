@@ -1,13 +1,4 @@
 /********************BASE**********************/
-:root {
-    --tooltips-right-left: 60%;
-    --tooltips-right-top: 100%;
-    --tooltips-left-left: 100%;
-    --tooltips-left-top: 100%;
-    --tooltips-middle-left: 35%;
-    --tooltips-middle-top: 22%;
-
-  }
 * {
     box-sizing: border-box;
     padding: 0;
@@ -93,10 +84,11 @@ a {
     display: none;
 }
 .file-tool-save:hover {
-    box-shadow: inset 0px 0px 0px 1px rgb(64, 174, 248);
+    box-shadow: 0px 0px 0px 1px rgb(64, 174, 248);
 }
-.file-tool-save img{
-    display: block;
+.file-tool-save{
+    display: flex;
+    height: -moz-fit-content;
 }
 
 .resize-tool span {

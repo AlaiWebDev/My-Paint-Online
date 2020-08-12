@@ -37,13 +37,11 @@ a {
 .display-none {
     display: none;
 }
-
+.inactive{
+    color: rgb(155, 153, 153);
+}
 .cursor {
     cursor: default;
-}
-
-.txt-font-size {
-    font-size: 18px;
 }
 
 .text-center {
@@ -87,9 +85,15 @@ a {
 .file-tool-save:hover {
     box-shadow: 0px 0px 0px 1px rgb(64, 174, 248);
 }
+<<<<<<< HEAD
 
 .file-tool-save img {
     display: block;
+=======
+.file-tool-save{
+    display: flex;
+    height: -moz-fit-content;
+>>>>>>> Working
 }
 
 .resize-tool span {
@@ -175,15 +179,19 @@ a {
     margin-right: 5px;
     margin-left: 5px;
 }
+<<<<<<< HEAD
 
 .cut-copy img {
     width: 20px;
-    height: auto;
+=======
+.cut-copy span{
+    display: flex;
+    color: rgb(155, 153, 153);
 }
-
-
-#copy {
-    font-size: large;
+.cut-copy img{
+    width:20px;
+>>>>>>> Working
+    height: auto;
 }
 
 .copy span {
@@ -194,29 +202,42 @@ a {
 
 /********************THEME**********************/
 /******TOOLTIPS******/
-.aria {
+.rel {
     position: relative;
-    display: inline-block;
 }
 
-.aria .aria-text {
+.pos-out{
+    top: 22%;
+    left: 35%;
+}
+.pos-in{
+    top: 100%;
+    left: 100%;
+}
+
+.aria-text {
+    display: flex;
+    flex-flow: row wrap;
     visibility: hidden;
-    width: 300px;
+    white-space: pre;
     background: linear-gradient(white, rgb(234, 236, 238));
     border: 1px solid black;
     color: rgb(109, 109, 109);
     font-size: .8rem;
     text-align: left;
-    padding: 5px 0 5px 3px;
+    padding: 5px 15px 5px 3px;
     position: absolute;
-    z-index: 1;
-    top: 100%;
-    left: 100%;
+    z-index: 1000;
     opacity: 0;
     transition-delay: .6s;
 }
 
-.aria:hover .aria-text {
+.abs:hover .aria-text{
+    visibility: visible;
+    opacity: 1;
+    transition-delay: 1s;
+}
+.rel:hover .aria-text {
     visibility: visible;
     opacity: 1;
     transition-delay: 1s;
@@ -243,10 +264,11 @@ a {
     justify-content: flex-start;
     background-color: rgb(245, 246, 248);
 }
+.tools-bar>div{
+    height: 100%;
+}
 
-
-
-/******DRAW FORMS******/
+/******SELECT FORMS******/
 .active-form {
     border: 1px dashed rgb(72, 111, 240);
     width: 50px;
@@ -260,6 +282,7 @@ a {
 .tool-forms {
     margin-top: 4px;
     flex-flow: column;
+    height: 100%;
 }
 
 .a-form {
@@ -288,7 +311,6 @@ a {
 
 .a-form:hover {
     background-color: rgb(213, 230, 247);
-    box-shadow: 0px 0px 0px 1px rgb(64, 174, 248);
 }
 
 .select-form {
@@ -300,8 +322,29 @@ a {
     margin-top: 7px;
     width: 100%;
 }
+/******RESIZE TOOLS******/
+.img-resize-tools{
+    display: flex;
+    flex-flow: column;
+    align-items: flex-start;
+    width:auto;
+    margin: 10px 10px;
+    padding-bottom: 30px;
+    border-right: 1px solid rgb(214, 207, 207);
+}
+.img-resize-tools img{
+    display: block;
+}
+.img-resize-tools span{
+    display: flex;
+    margin:2px;
+    margin-right: 4px;
+}
+.img-resize-tools span:hover:not(:first-child){
+        box-shadow: 0px 0px 0px 1px rgba(64, 174, 248, 0.5);
+}
 
-/******TOOLS******/
+/******DRAWING TOOLS******/
 .tools-items {
     flex-flow: column;
 
@@ -327,17 +370,158 @@ a {
     box-shadow: 0px 0px 0px 1px rgba(64, 174, 248, 0.5);
     background: rgb(77, 136, 245);
 }
+/******PENCIL TOOLS******/
+.draw-select {
+    flex-flow: column;
+    justify-content: space-between;
+}
+.draw-select:hover>div {
+    box-shadow: 0px 0px 0px 1px rgb(64, 174, 248);
+}
+.draw-select:hover{
+    box-shadow: 0px 0px 0px 1px rgb(64, 174, 248);
+}
+.tool-pencil{
+        flex-flow: column;
+        height: 100%;
+        margin-right: 20px;
+        padding-right: 10px;
+        padding-bottom: 10px;
+        margin-top: 10px;
+        border-right: 1px solid rgb(214, 207, 207);
+}
+.select-draw{
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+}
+.select-draw span:first-child {
+    width: 100%;
+}
+.select-draw:hover{
+    background-color: rgb(213, 230, 247);
+}
+.draw-active {
+    text-align: center;
+    width: 40px;
+    height: 25px;
+    margin-top: 10px;
+    margin-bottom: 15px;
+    margin-right: auto;
+    margin-left: auto;
+}
+.draw-active img{
+    min-width:70%;
+}
+/******PENCIL FORMS******/
+
+.draw-form:hover {
+    box-shadow: 0px 0px 0px 1px rgba(64, 174, 248, 0.5);
+    background: rgb(77, 136, 245);
+}
+
+.draw-forms{
+    display: grid;
+    height: 60px;
+    overflow-x: hidden;
+    overflow-y: scroll;
+    grid-template-rows: 20px 20px 20px 20px 20px 20px 20px;
+    gap: 1px 1px;
+}
+
+.draw-forms-line{
+    background-color: white;
+    margin-bottom: 5px;
+    display: flex;
+}
+
+#draws-form{
+    display: flex;
+    margin-top: 20px;
+    margin-right: 20px;
+    background-color: white;
+    border: 1px solid darkgray;
+}
+/******AREA & FILL TOOLS******/
+
+.img-areafill-tools{
+    display: flex;
+    flex-flow: column;
+    align-items: flex-start;
+    width:auto;
+    margin: 10px 10px;
+    padding-bottom: 30px;
+}
+.img-areafill-tools img{
+    display: block;
+}
+.img-areafill-tools span{
+    display: flex;
+    margin:2px;
+    margin-right: 4px;
+}
+
+/******SIZE OF TOOLS******/
+.size-of-tool{
+    flex-direction: column;
+    justify-content: flex-end;
+    width: fit-content;
+    margin-top: 11px;
+    margin-right: 20px;
+    padding-bottom: 8px;
+    padding-right: 10px;
+    background-color: rgb(245, 246, 248);
+    border-left: 1px solid rgb(214, 207, 207);
+}
+.size-of-tool>hr{
+    margin-top:5px;
+    padding-left: 10px;
+    margin-left: 10px;
+    width:100%;
+    border-width:0;
+    background-color:rgb(30, 57, 91);
+}
+.size-of-tool:first-child{
+    margin-top: 2px;
+}
+.size-of-tool:hover{
+    background-color: rgb(232, 239, 247);
+    box-shadow: inset 0px 0px 0px 1px rgb(64, 174, 248);
+}
+.size-of-tool span{
+    margin-left: 10px;
+}
+.size-of-tool span:first-of-type{
+    padding-top: 6px;
+}
+#hr1{
+    height:1px;
+}
+#hr2{
+    height:4px;
+}
+#hr3{
+    height:5px;
+}
+#hr4{
+    height:10px;
+}
 
 /******COLOURS******/
 /***Active Colours***/
 .tool-color {
-    margin-top: 4px
+    height: 100%;
+    margin-top: 11px;
+    padding-bottom: 7px;
+    padding-left: 4px;
+    border-left: 1px solid rgb(214, 207, 207);
 }
 
 .color-select1 span,
 .color-select2 span {
     margin: 1px 2px 0px 2px;
 }
+
 
 .color-select1 {
     flex-flow: column;
@@ -389,7 +573,9 @@ a {
     width: 20px;
     height: 20px
 }
-
+.colors-line>div:hover {
+    box-shadow: 0px 0px 0px 1px rgba(64, 174, 248, 0.5);
+}
 #lightyellow {
     background: lightyellow;
 }
@@ -435,7 +621,7 @@ a {
 }
 
 #violet {
-    background: violet;
+    background: rgb(163, 73, 164);
 }
 
 #lavande {

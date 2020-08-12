@@ -11,7 +11,7 @@ var y = 2;
 document.querySelector('#window-tool').addEventListener('click', dispToolbar);
 function init() {
     canvas = document.getElementById('myCanvas');
-    //listenToolerase = document.querySelector('.tool-erase');
+    listenToolsave = document.querySelector('.file-tool-save');
     ctx = canvas.getContext("2d");
     w = canvas.width;
     h = canvas.height;
@@ -63,7 +63,6 @@ function findxy(res, e) {
         prevY = currY;
         currX = e.clientX - canvas.offsetLeft;
         currY = e.clientY - canvas.offsetTop;
-
         flag = true;
         dot_flag = true;
         if (dot_flag) {

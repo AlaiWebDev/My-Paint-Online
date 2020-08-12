@@ -1,4 +1,13 @@
 /********************BASE**********************/
+:root {
+    --tooltips-right-left: 60%;
+    --tooltips-right-top: 100%;
+    --tooltips-left-left: 100%;
+    --tooltips-left-top: 100%;
+    --tooltips-middle-left: 35%;
+    --tooltips-middle-top: 22%;
+
+  }
 * {
     box-sizing: border-box;
     padding: 0;
@@ -36,7 +45,9 @@ a {
 .display-none {
     display: none;
 }
-
+.inactive{
+    color: rgb(155, 153, 153);
+}
 .cursor {
     cursor: default;
 }
@@ -179,9 +190,6 @@ a {
     width:20px;
     height: auto;
 }
-#copy {
-    font-size: large;
-}
 
 .copy span {
     font-size: 3rem;
@@ -191,14 +199,21 @@ a {
 
 /********************THEME**********************/
 /******TOOLTIPS******/
-.aria {
+.rel {
     position: relative;
-    display: inline-block;
 }
-.aria2{
-    display: inline-block;
+
+.pos-out{
+    top: 22%;
+    left: 45%;
 }
-.aria2 .aria2-text {
+.pos-in{
+    top: 100%;
+    left: 100%;
+}
+
+
+.aria-text {
     display: flex;
     flex-flow: row wrap;
     visibility: hidden;
@@ -211,37 +226,16 @@ a {
     padding: 5px 15px 5px 3px;
     position: absolute;
     z-index: 1000;
-    top: 22%;
-    left: 50%;
     opacity: 0;
     transition-delay: .6s;
 }
-.aria2:hover .aria2-text {
+
+.abs:hover .aria-text{
     visibility: visible;
     opacity: 1;
     transition-delay: 1s;
 }
-.aria .aria-text {
-    display: flex;
-    flex-flow: row wrap;
-    visibility: hidden;
-    white-space: pre;
-
-    background: linear-gradient(white, rgb(234, 236, 238));
-    border: 1px solid black;
-    color: rgb(109, 109, 109);
-    font-size: .8rem;
-    text-align: left;
-    padding: 5px 15px 5px 3px;
-    position: absolute;
-    z-index: 1000;
-    top: 100%;
-    left: 100%;
-    opacity: 0;
-    transition-delay: .6s;
-}
-
-.aria:hover .aria-text {
+.rel:hover .aria-text {
     visibility: visible;
     opacity: 1;
     transition-delay: 1s;
@@ -267,8 +261,6 @@ a {
 .tools-bar>div{
     height: 100%;
 }
-
-
 
 /******SELECT FORMS******/
 .active-form {
@@ -405,13 +397,11 @@ a {
     margin-bottom: 15px;
     margin-right: auto;
     margin-left: auto;
-    
 }
 .draw-active img{
     min-width:70%;
 }
 /******PENCIL FORMS******/
-
 
 .draw-form:hover {
     box-shadow: 0px 0px 0px 1px rgba(64, 174, 248, 0.5);
@@ -423,7 +413,6 @@ a {
     height: 60px;
     overflow-x: hidden;
     overflow-y: scroll;
-    
     grid-template-rows: 20px 20px 20px 20px 20px 20px 20px;
     gap: 1px 1px;
 }
@@ -441,13 +430,64 @@ a {
     background-color: white;
     border: 1px solid darkgray;
 }
+/******AREA & FILL TOOLS******/
+
+.img-areafill-tools{
+    display: flex;
+    flex-flow: column;
+    align-items: flex-start;
+    width:auto;
+    margin: 10px 10px;
+    padding-bottom: 30px;
+}
+.img-areafill-tools img{
+    display: block;
+}
+.img-areafill-tools span{
+    display: flex;
+    margin:2px;
+    margin-right: 4px;
+}
+
+/******SIZE OF TOOLS******/
+.size-of-tool{
+    flex-direction: column;
+    padding-bottom: 40px;
+    margin-top: 11px;
+    margin-right: 20px;
+    background-color: rgb(245, 246, 248);
+    border-left: 1px solid rgb(214, 207, 207);
+}
+.size-of-tool>hr{
+    margin:2px;
+    margin-left: 10px;
+    width:100%;
+    border-width:0;
+    background-color:rgb(121, 140, 171);
+}
+.size-of-tool span{
+    margin-left: 10px;
+}
+#hr1{
+    height:1px;
+}
+#hr2{
+    height:4px;
+}
+#hr3{
+    height:5px;
+}
+#hr4{
+    height:10px;
+}
+
 /******COLOURS******/
 /***Active Colours***/
 .tool-color {
     height: 100%;
-    margin-top: 10px;
+    margin-top: 11px;
     padding-bottom: 7px;
-    padding-left: 20px;
+    padding-left: 4px;
     border-left: 1px solid rgb(214, 207, 207);
 }
 
@@ -554,7 +594,7 @@ a {
 }
 
 #violet {
-    background: violet;
+    background: rgb(163, 73, 164);
 }
 
 #lavande {

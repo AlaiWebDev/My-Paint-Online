@@ -43,10 +43,6 @@ a {
     cursor: default;
 }
 
-.txt-font-size {
-    font-size: 18px;
-}
-
 .text-center {
     text-align: center;
 }
@@ -203,7 +199,6 @@ a {
     top: 100%;
     left: 100%;
 }
-
 
 .aria-text {
     display: flex;
@@ -444,21 +439,35 @@ a {
 /******SIZE OF TOOLS******/
 .size-of-tool{
     flex-direction: column;
-    padding-bottom: 40px;
+    justify-content: flex-end;
+    width: fit-content;
     margin-top: 11px;
     margin-right: 20px;
+    padding-bottom: 8px;
+    padding-right: 10px;
     background-color: rgb(245, 246, 248);
     border-left: 1px solid rgb(214, 207, 207);
 }
 .size-of-tool>hr{
-    margin:2px;
+    margin-top:5px;
+    padding-left: 10px;
     margin-left: 10px;
     width:100%;
     border-width:0;
-    background-color:rgb(121, 140, 171);
+    background-color:rgb(30, 57, 91);
+}
+.size-of-tool:first-child{
+    margin-top: 2px;
+}
+.size-of-tool:hover{
+    background-color: rgb(232, 239, 247);
+    box-shadow: inset 0px 0px 0px 1px rgb(64, 174, 248);
 }
 .size-of-tool span{
     margin-left: 10px;
+}
+.size-of-tool span:first-of-type{
+    padding-top: 6px;
 }
 #hr1{
     height:1px;

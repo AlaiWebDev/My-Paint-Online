@@ -85,15 +85,9 @@ a {
 .file-tool-save:hover {
     box-shadow: 0px 0px 0px 1px rgb(64, 174, 248);
 }
-<<<<<<< HEAD
-
-.file-tool-save img {
-    display: block;
-=======
 .file-tool-save{
     display: flex;
     height: -moz-fit-content;
->>>>>>> Working
 }
 
 .resize-tool span {
@@ -179,18 +173,12 @@ a {
     margin-right: 5px;
     margin-left: 5px;
 }
-<<<<<<< HEAD
-
-.cut-copy img {
-    width: 20px;
-=======
 .cut-copy span{
     display: flex;
     color: rgb(155, 153, 153);
 }
 .cut-copy img{
     width:20px;
->>>>>>> Working
     height: auto;
 }
 

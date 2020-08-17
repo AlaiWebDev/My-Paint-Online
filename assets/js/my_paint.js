@@ -39,23 +39,12 @@ function draw() {
     ctx.beginPath();
     ctx.moveTo(prevX, prevY);
     ctx.lineTo(currX, currY);
-    var ray = currX-prevX;
-    if (ray < 0){ray = currY - prevY};
-    ctx.strokeStyle = x;
-    ctx.lineWidth = y;
-    ctx.stroke();
-    ctx.arc(prevX, prevY, ray, 0, 2 * Math.PI);
-    ctx.closePath();
-}
-function draw_circle() {
-    ctx.beginPath();
-    ctx.moveTo(prevX, prevY);
-    ctx.lineTo(currX, currY);
     ctx.strokeStyle = x;
     ctx.lineWidth = y;
     ctx.stroke();
     ctx.closePath();
 }
+
 
 function findxy(res, e) {
     if (res == 'down') {
@@ -105,6 +94,10 @@ function save() {
 
 function color(obj) {
     switch (obj.id) {
+        case "rubber":
+            x = "white";
+            y = 14
+            return;
         case "green":
             x = "green";
             break;
@@ -166,17 +159,26 @@ function color(obj) {
             x = "lightgreen";
             break;
     }
+    document.getElementById('selected1').style.backgroundColor = x;
     if (x == "white") y = 14;
     else y = 2;
 }
 
-function rubber(obj) {
-    switch (obj.id) {
-        case "rubberwhite":
-            x = "white";
-            break;
-    }
+// CERCLE
+var ox=false, oy=false, centrex=currX, centrey=currY;
+// Il faut entrer les bonnes coordonnées du centre
+function draw_circle(){
+ctx.beginPath();
+    var ray = Math.round(Math.sqrt(Math.pow(currX-ox-prevX,2)+Math.pow(currY-oy-prevY,2)));
+    ctx.strokeStyle = x;
+    ctx.lineWidth = y;
+    ctx.arc(prevX, prevY, ray, 0, 2 * Math.PI);
+    ctx.stroke();
+    ctx.closePath();
 }
+
+//FIN CERCLE
+
 function dispToolbar(){
     toolbar = document.querySelector('.file-tool-bar');
     toolbar.display

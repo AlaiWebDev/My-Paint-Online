@@ -1,98 +1,37 @@
-var canvas;
-var ctx;
-var flag = false;
-var prevX = 0;
-var currX = 0;
-var prevY = 0;
-var currY = 0;
-var dot_flag = false;
-var x = "black";
-var y = 2;
+
 document.querySelector('#window-tool').addEventListener('click', dispToolbar);
-function init() {
-    canvas = document.getElementById('myCanvas');
-    listenToolsave = document.querySelector('.file-tool-save');
-    ctx = canvas.getContext("2d");
-    w = canvas.width;
-    h = canvas.height;
-    listenToolsave = document.querySelector('.file-tool-save');
-    listenToolsave.addEventListener("click", save);
-    //listenToolerase.addEventListener("click", erase);
-    canvas.addEventListener("click", function (e) {
-        findxy('click', e)
-    }, false);
-    canvas.addEventListener("mousemove", function (e) {
-        findxy('move', e)
-    }, false);
-    canvas.addEventListener("mousedown", function (e) {
-        findxy('down', e)
-    }, false);
-    canvas.addEventListener("mouseup", function (e) {
-        findxy('up', e)
-    }, false);
-    canvas.addEventListener("mouseout", function (e) {
-        findxy('out', e)
-    }, false);
+var p = document.querySelector('.sheet'); // element to make resizable
+
+document.getElementById('redim1').addEventListener('click', function init() {
+    p.removeEventListener('click', init, false);
+    p.addEventListener('mousedown', initDrag, false);
+    p.className = p.className + ' resizable';
+    var resizer = document.createElement('div');
+    resizer.className = 'resizer';
+    p.appendChild(resizer);
+    resizer.addEventListener('mousedown', initDrag, false);
+}, false);
+
+var startX, startY, startWidth;
+
+function initDrag(e) {
+   startX = e.clientX;
+   startY = e.clientY;
+   startWidth = parseInt(document.defaultView.getComputedStyle(p).width, 10);
+   document.documentElement.addEventListener('mousemove', doDrag, false);
+   document.documentElement.addEventListener('mouseup', stopDrag, false);
 }
 
-function draw() {
-    ctx.beginPath();
-    ctx.moveTo(prevX, prevY);
-    ctx.lineTo(currX, currY);
-    ctx.strokeStyle = x;
-    ctx.lineWidth = y;
-    ctx.stroke();
-    ctx.closePath();
+function doDrag(e) {
+   p.style.width = (startWidth + e.clientX - startX) + 'px';
 }
 
-
-function findxy(res, e) {
-    if (res == 'down') {
-        prevX = currX;
-        prevY = currY;
-        currX = e.clientX - canvas.offsetLeft;
-        currY = e.clientY - canvas.offsetTop;
-        flag = true;
-        dot_flag = true;
-        if (dot_flag) {
-            ctx.beginPath();
-            ctx.fillStyle = x;
-            ctx.fillRect(currX, currY, 2, 2);
-            ctx.closePath();
-            dot_flag = false;
-        }
-    }
-    if (res == 'up' || res == 'out') {
-        flag = false;
-    }
-    if (res == 'move' || res == 'click') {
-        if (flag) {
-            prevX = currX;
-            prevY = currY;
-            currX = e.clientX - canvas.offsetLeft;
-            currY = e.clientY - canvas.offsetTop;
-            draw();
-        }
-    }
+function stopDrag(e) {
+    document.documentElement.removeEventListener('mousemove', doDrag, false);
+    document.documentElement.removeEventListener('mouseup', stopDrag, false);
 }
 
-function erase() {
-    var m = confirm("Vous allez tout effacer. Vous êtes sûr ?");
-    if (m) {
-        ctx.clearRect(0, 0, w, h);
-        document.getElementById("canvasimg").style.display = "none";
-    }
-}
-
-function save() {
-    document.getElementById("canvasimg").style.border = "1px solid";
-    var image = canvas.toDataURL("image/png").replace("image/png", "image/octet-stream");
-    window.location.href = image;
-    document.getElementById("canvasimg").src = image;
-    document.getElementById("canvasimg").style.display = "inline";
-}
-
-function color(obj) {
+/*function color(obj) {
     switch (obj.id) {
         case "rubber":
             x = "white";
@@ -159,28 +98,16 @@ function color(obj) {
             x = "lightgreen";
             break;
     }
-    document.getElementById('selected1').style.backgroundColor = x;
-    if (x == "white") y = 14;
-    else y = 2;
-}
-
+document.getElementById('selected1').style.backgroundColor = x;
+if (x == "white") y = 14;
+else y = 2;
+}*/
 // CERCLE
-var ox=false, oy=false, centrex=currX, centrey=currY;
 // Il faut entrer les bonnes coordonnées du centre
-function draw_circle(){
-ctx.beginPath();
-    var ray = Math.round(Math.sqrt(Math.pow(currX-ox-prevX,2)+Math.pow(currY-oy-prevY,2)));
-    ctx.strokeStyle = x;
-    ctx.lineWidth = y;
-    ctx.arc(prevX, prevY, ray, 0, 2 * Math.PI);
-    ctx.stroke();
-    ctx.closePath();
+function draw_circle() {
 }
-
 //FIN CERCLE
-
-function dispToolbar(){
+function dispToolbar() {
     toolbar = document.querySelector('.file-tool-bar');
     toolbar.display
-
 }

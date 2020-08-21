@@ -9,7 +9,7 @@
     <link rel="icon" href="data:,">
     <title>My Paint Online</title>
 </head>
-<body onload="init()">
+<body>
     <header>
         <h3 class="mytitle text-center display-none">MY PAINT ONLINE BY Alain ORLUK</h3>
         <div class="menu cursor">
@@ -186,9 +186,6 @@ remplissage de la forme</span>
                 <span class="text-center">Taille</span>
                 <span>&#9662;</span>
             </div>
-            <!--<div>
-                    <span class="tool-erase cursor">Effacer</span>
-                </div>-->
             <div class="tool-color flex">
                 <div class="color-select1 align-center flex active">
                     <div id="selected1"></div>
@@ -237,7 +234,6 @@ remplissage de la forme</span>
                         <div class="color rel" id="white" onclick="color(this)"></div>
                         <div class="color rel" id="white" onclick="color(this)"></div>
                     </div>
-                    <!--<div id="rubberwhite" onclick="rubber(this)">Gommer</div>-->
                     <span class="text-center">Couleurs</span>
                 </div>
             </div>
@@ -245,14 +241,19 @@ remplissage de la forme</span>
         </div>
     </header>
     <main>
-        <canvas id="myCanvas" width="842" height="900"></canvas>
+        <div class="sheet">
+            <span id="redim1"></span>
+            <span id="redim2"></span>
+            <span id="redim3"></span>
+        </div>    
     </main>
-    <img id="canvasimg" style="position:absolute;top:10%;left:52%;background-color: white;" style="display:none;">
     <footer class="measure">
         <div class="foot-pos-cursor"><img src="./assets/img/position_cursor.png"></div>
+        <div><img src="./assets/img/selection_size.png"></div>
+        <div><img src="./assets/img/selection_size-full.png"></div>
         <div></div>
         <div></div>
-        <div></div>
+        
     </footer>
     <script type="text/javascript" src="./assets/js/my_paint.js"></script>
 </body>

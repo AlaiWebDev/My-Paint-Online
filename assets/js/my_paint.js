@@ -1,35 +1,7 @@
 
 document.querySelector('#window-tool').addEventListener('click', dispToolbar);
-var p = document.querySelector('.sheet'); // element to make resizable
 
-document.getElementById('redim1').addEventListener('click', function init() {
-    p.removeEventListener('click', init, false);
-    p.addEventListener('mousedown', initDrag, false);
-    p.className = p.className + ' resizable';
-    var resizer = document.createElement('div');
-    resizer.className = 'resizer';
-    p.appendChild(resizer);
-    resizer.addEventListener('mousedown', initDrag, false);
-}, false);
 
-var startX, startY, startWidth;
-
-function initDrag(e) {
-   startX = e.clientX;
-   startY = e.clientY;
-   startWidth = parseInt(document.defaultView.getComputedStyle(p).width, 10);
-   document.documentElement.addEventListener('mousemove', doDrag, false);
-   document.documentElement.addEventListener('mouseup', stopDrag, false);
-}
-
-function doDrag(e) {
-   p.style.width = (startWidth + e.clientX - startX) + 'px';
-}
-
-function stopDrag(e) {
-    document.documentElement.removeEventListener('mousemove', doDrag, false);
-    document.documentElement.removeEventListener('mouseup', stopDrag, false);
-}
 
 /*function color(obj) {
     switch (obj.id) {

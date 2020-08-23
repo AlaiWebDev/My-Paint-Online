@@ -10,7 +10,7 @@
 html,
 body {
     height: 100%;
-    background-color: rgb(255, 255, 255);
+    background-color: rgb(207, 216, 231);
     font-size: 16px;
 }
 
@@ -21,58 +21,12 @@ header {
 
 main {
     background-color: rgb(207, 216, 231);
-    height: 100%;
-    z-index: -1;
     display: flex;
     flex-flow: column;
     align-items: center;
-    box-shadow: 10px 10px 2px 1px gray;
-}
-.sheet{
-    width:768px;
-    height: 100vh;
-    margin: 10px auto 10px 10px;
-    background-color: white;
-}
-#redim1{
-    position: absolute;
-    left:780px;
-    top: 650px;
-    height:6px;
-    width:6px;
-    border: 1px solid black;
-    background-color: white;
-}
-#redim2{
-    position: absolute;
-    left:780px;
-    top: 1092px;
-    height:6px;
-    width:6px;
-    border: 1px solid black;
-    background-color: white;
-}
-#redim3{
-    position: absolute;
-    left:390px;
-    top: 1092px;
-    height:6px;
-    width:6px;
-    border: 1px solid black;
-    background-color: white;
-}
-#redim1:hover{
-    cursor: ew-resize;
-}
-#redim2:hover{
-    cursor: nwse-resize;
-}
-#redim3:hover{
-    cursor: ns-resize;
 }
 a {
-    text-decoration: none;
-    
+    text-decoration: none;   
 }
 
 .display-none {
@@ -107,6 +61,7 @@ a {
     width: 100%;
     display: flex;
     justify-content: space-between;
+    background-color: white;
 }
 
 /********************MODULES**********************/
@@ -683,21 +638,4 @@ a {
 
 #white {
     background: white;
-}
-
-.foot-pos-cursor{
-    display: flex;
-    align-items: center;
-    height: 30px;
-    background-color: rgb(231, 221, 221);
-    width: 100%;
-}
-.foot-pos-cursor img {
-    
-    height: 60%;
-    background-color: rgb(231, 221, 221);
-}
-.measure{
-    display: flex;
-    align-items: center;
 }

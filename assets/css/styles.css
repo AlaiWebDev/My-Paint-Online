@@ -6,7 +6,6 @@
     font-family: 'Segoe UI';
     /*border:1px solid red;*/
 }
-
 html,
 body {
     height: 100%;
@@ -578,6 +577,91 @@ a {
 
 #lightgray {
     background: lightgray;
+}
+
+#myindigo {
+    background: rgb(63, 72, 204);
+}
+
+#turquoise {
+    background: turquoise;
+}
+
+#darkred {
+    background: darkred;
+}
+
+#mydarkgray {
+    background: rgb(127, 127, 127);
+}
+
+#green {
+    background: green;
+}
+
+#paleturquoise {
+    background: paleturquoise;
+}
+
+#violet {
+    background: rgb(163, 73, 164);
+}
+
+#lavande {
+    background: lavender;
+}
+
+#lightgreen {
+    background: lightgreen;
+}
+
+#blue {
+    background: blue;
+}
+
+#red {
+    background: red;
+}
+
+#yellow {
+    background: yellow;
+}
+
+#orange {
+    background: orange;
+}
+
+#black {
+    background: black;
+}
+
+#white {
+    background: white;
+}
+.colorStroke{
+    stroke: aqua;
+}
+.colorStroke-yellow{
+    stroke:yellow;
+}
+.colorStroke-lightyellow {
+    stroke: lightyellow;
+}
+
+.colorStroke-gold {
+    stroke: gold;
+}
+
+.colorStroke-salmon {
+    stroke: salmon;
+}
+
+.colorStroke-brown {
+    stroke: brown;
+}
+
+.colorStroke-lightgray {
+    stroke: lightgray;
 }
 
 #myindigo {

@@ -1,5 +1,5 @@
 
-document.querySelector('#window-tool').addEventListener('click', dispToolbar);
+
 
 
 

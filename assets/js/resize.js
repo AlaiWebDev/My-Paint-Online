@@ -33,7 +33,6 @@
          var topLeftDrawingQueryStr = externalWrapperQueryStr + ' .topLeftDrawing';
          var topRightDrawingQueryStr = externalWrapperQueryStr + ' .topRightDrawing';
          var bottomRightDrawingQueryStr = externalWrapperQueryStr + ' .bottomRightDrawing';
-
          var currentAction = ActionsEnum.None;
 
          var lastMouseX = 0;
@@ -106,7 +105,6 @@
              updateSize(deltaWidth, deltaHeight);
              adjustWrapper();
          }
-
          function updateSize(deltaWidth, deltaHeight) {
              // Calculate the new size.
              var elemWidth = parseInt($("#mySheet").width());
@@ -122,7 +120,6 @@
              if (newHeight < minumalSize) {
                  newHeight = minumalSize;
              }
-
              // Set the new size.
              $("#mySheet").css('width', newWidth + 'px');
              $("#mySheet").css('height', newHeight + 'px');

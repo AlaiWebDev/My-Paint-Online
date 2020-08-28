@@ -1,5 +1,4 @@
-var x = "";
-document.querySelector('#window-tool').addEventListener('click', dispToolbar);
+
 function color(obj) {
     switch (obj.id) {
         case "green":
@@ -117,8 +116,6 @@ function drawLine() {
         $line.attr('y1', point.y);
         $line.attr('x2', point.x);
         $line.attr('y2', point.y);
-        //$line.attr('x1', pointX);
-        //$line.attr('y1', pointY);
         function mouseMoveLine(ev) {
             point.x = ev.offsetX;
             point.y = ev.offsetY;
@@ -145,11 +142,8 @@ function drawEllipse() {
     $svg.on('mousedown', function (ev) {
         var activeColor = $('#selected1').css("background-color");
         $Ellipse.css('stroke', activeColor);
-        //var point = $svg[0].createSVGPoint();
         var lastMouseX = ev.pageX;
         var lastMouseY = ev.pageY;
-        //var lastMouseX = point.x;
-        //var lastMouseY = point.y;
         $Ellipse.attr('cx', ev.offsetX);
         $Ellipse.attr('cy', ev.offsetY);
         $Ellipse.attr('rx', 10);
@@ -158,11 +152,11 @@ function drawEllipse() {
             var currMouseX = ev.pageX;
             var currMouseY = ev.pageY;
             var rayX = currMouseX - lastMouseX;
-            if (rayX < 0){
+            if (rayX < 0) {
                 rayX = lastMouseX - currMouseX;
             }
             var rayY = currMouseY - lastMouseY;
-            if (rayY < 0){
+            if (rayY < 0) {
                 rayY = lastMouseY - currMouseY;
             }
             $Ellipse.attr('rx', rayX);
@@ -178,4 +172,3 @@ function drawEllipse() {
 
     })
 }
-/********************/

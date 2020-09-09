@@ -94,6 +94,7 @@ function drawPath() {
             mouseMovePath(ev);
             $(window).off('mousemove', mouseMovePath);
             $(window).off('mouseup', mouseUpPath);
+            /*download($svg);*/
         }
         $(window).on('mousemove', mouseMovePath);
         $(window).on('mouseup', mouseUpPath);
@@ -101,7 +102,7 @@ function drawPath() {
     })
 }
 function drawLine() {
-    var $svg = $('#mySheet2');
+    let $svg = $('#mySheet2');
     var $line = $('#line');
     $svg.off('mousedown');
     $svg.off('mouseup');
@@ -135,12 +136,18 @@ function drawLine() {
 }
 function drawEllipse() {
     var $svg = $('#mySheet2');
+    
     var $Ellipse = $('#ellipse');
     $svg.off('mousedown');
     $svg.off('mouseup');
     $svg.off('mousemove');
     $svg.on('mousedown', function (ev) {
         var activeColor = $('#selected1').css("background-color");
+        var fillColor = $('#selected2').css("background-color");
+        if (fillColor !== "white") {
+            $Ellipse.css('fill', fillColor);
+            $Ellipse.css('fill-opacity', 1);
+        }
         $Ellipse.css('stroke', activeColor);
         var lastMouseX = ev.pageX;
         var lastMouseY = ev.pageY;
@@ -172,3 +179,80 @@ function drawEllipse() {
 
     })
 }
+function openFile() {
+    const fileList = event.target.files;
+    console.log(fileList);
+}
+
+
+function swapColor(obj) {
+    switch (obj.id) {
+        case "selected1":
+        obj.classList.replace("inactive","active");
+        document.querySelector('.color-select1').classList.replace("inactive", "active");
+        document.getElementById("selected2").classList.replace("active","inactive");
+        document.querySelector('.color-select2').classList.replace("active","inactive");
+            break;
+        case "selected2":
+        obj.classList.replace("inactive","active");
+        document.querySelector('.color-select2').classList.replace("inactive", "active");
+        document.getElementById("selected1").classList.replace("active","inactive");
+        document.querySelector('.color-select1').classList.replace("active","inactive");
+            break;
+    }
+}
+function onFileSelected(event) {
+    var selectedFile = event.target.files[0];
+    var reader = new FileReader();
+  
+    var imgtag = document.getElementById("myimage");
+    imgtag.title = selectedFile.name;
+  
+    reader.onload = function(event) {
+      imgtag.src = event.target.result;
+    };
+  
+    reader.readAsDataURL(selectedFile);
+}
+function convertDownload(){
+    var svg = document.querySelector("#mySheet2");
+    var svgData = new XMLSerializer().serializeToString(svg);
+    var canvas = document.createElement("canvas");
+    var svgSize = svg.getBoundingClientRect();
+    canvas.width = svgSize.width * 3;
+    canvas.height = svgSize.height * 3;
+    canvas.style.width = svgSize.width;
+    canvas.style.height = svgSize.height;
+    var ctx = canvas.getContext("2d");
+    ctx.scale(3, 3);
+  
+    var img = document.createElement("img");
+    img.setAttribute("src", "data:image/svg+xml;base64," + btoa(unescape(encodeURIComponent(svgData))));
+  
+    img.onload = function () {
+        ctx.drawImage(img, 0, 0);
+        var canvasdata = canvas.toDataURL("image/png", 1);
+  
+        var pngimg = '<img src="' + canvasdata + '">';
+        d3.select("#pngdataurl").html(pngimg);
+  
+        var a = document.createElement("a");
+        /*a.download = "new" + ".png";*/
+        a.download = "new";
+        a.href = canvasdata;
+        document.body.appendChild(a);
+        a.click();
+    }
+}
+    function download($svg) {
+        $svg = $('#mySheet2');
+        var code = (new XMLSerializer).serializeToString($svg[0]);
+        var b64 = window.btoa(unescape(encodeURIComponent(code))); // Workaround on UTF-8 char
+        console.log("data:image/svg+xml;base64," + b64);
+        var $dataURL = "data:image/svg+xml;base64," + b64;
+        var dl = document.createElement("a");
+        document.body.appendChild(dl); // This line makes it work in Firefox.
+        dl.setAttribute("href", $dataURL);
+        dl.setAttribute("download", "new.svg");
+        dl.click();
+    }

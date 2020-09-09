@@ -69,6 +69,7 @@ a {
 .file-bar {
     background-color: rgb(255, 255, 255);
     justify-content: space-between;
+    height: 20px;
 }
 
 .file-tool * {
@@ -113,7 +114,11 @@ a {
     justify-content: flex-start;
     background-color: white;
 }
+..main-bar *{
+    border: 1px solid red;
+}
 
+   
 .btn-tool-active {
     background-color: rgb(245, 246, 248);
     border-right: 2px solid rgb(228, 229, 230);
@@ -124,7 +129,61 @@ a {
 .btn-tool:hover {
     box-shadow: inset 0px 0px 0px 1px rgb(234, 236, 238)
 }
-
+.menu-checkbox:checked ~ .navbar {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+.navbar{
+    display: none;
+    position: absolute;
+    top:50px;
+    z-index: 50;
+    width:500px;
+    list-style-type: none;
+    margin: 0;
+    overflow: hidden;
+    background-color: #ffffff;
+    border: 1px solid #000000;
+}
+.navbar li{
+    display: flex;
+    width: 100%;
+    padding: 15px;
+    align-items: center;
+}
+.navbar li:hover {
+    background-color: rgb(213, 230, 247);
+}
+.navbar li:hover img{
+    background-color: transparent;
+}
+.menu-toggle{
+    background-color: #1979ca;
+    color:rgb(255,255,255);
+}
+.menu-checkbox{
+    position: absolute;
+    opacity: 0;
+    top: -5000px;
+}
+.nav-wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-start;
+    justify-content: space-between;
+    background-color: #ffffff;
+  }
+  .file-upload input{
+        overflow: hidden;
+        width: 0;
+  }
+ .underline::first-letter{
+      text-decoration: underline;
+  }
+  .navbar li img{
+      padding-right: 5px;
+  }
 /******PRESSE-PAPIER******/
 .tool-paste-cut-copy {
     flex-flow: row;
@@ -514,11 +573,14 @@ a {
 
 .active {
     background-color: rgb(201, 224, 247);
+    border: 1px solid rgb(12, 152, 245);
+}
+.inactive {
+    border: none !important;
 }
 
 .color-select2 {
     flex-flow: column;
-    background-color: rgb(245, 246, 248);
     margin-right: 2px;
 }
 
@@ -541,7 +603,7 @@ a {
     width: 30px;
     margin: 10px auto 4px auto;
     border: 1px solid black;
-    background-color: white;
+    background-color: blue;
 }
 
 /***Clours palette***/
@@ -723,4 +785,7 @@ a {
 
 #white {
     background: white;
+}
+h3{
+    color:white !important;
 }
